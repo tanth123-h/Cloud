@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sigma — Mint Webcam</title>
+
+  <!-- styles -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- font (optional) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="stage">
+    <section class="hero">
+      <div class="brand">
+        <div class="logo">Σ</div>
+        <div>
+          <div class="sub">Sigma</div>
+          <div class="title">Smart image model</div>
+        </div>
+      </div>
+
+      <h1>Live camera predictions — mint edition</h1>
+      <p class="lead">Clean mint-green interface with a centered webcam card. Click <strong>Start</strong> to allow your camera and see live predictions from your Teachable Machine model.</p>
+
+      <div class="features">
+        <div class="chip">Webcam live</div>
+        <div class="chip">Confidence bars</div>
+        <div class="chip">Responsive</div>
+        <div class="chip">Animations</div>
+      </div>
+    </section>
+
+    <aside class="card" aria-label="webcam card">
+      <div id="webcam-container" class="cam-wrap">
+        <div id="placeholder" class="placeholder">Camera off</div>
+      </div>
+
+      <div class="controls-row">
+        <div class="status" id="status">Status: idle</div>
+        <div class="controls">
+          <button id="start-btn" class="btn">Start</button>
+          <button id="stop-btn" class="btn secondary" disabled>Stop</button>
+        </div>
+      </div>
+
+      <div id="labels" class="labels" aria-live="polite">
+        <!-- label rows appended here -->
+      </div>
+    </aside>
+  </div>
+
+  <!-- libraries (must load BEFORE app.js) -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+
+  <!-- your app logic -->
+  <script src="app.js"></script>
+</body>
+</html>

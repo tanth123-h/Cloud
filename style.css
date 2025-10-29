@@ -1,0 +1,65 @@
+:root{
+  --mint-1: #f2fff9;
+  --mint-2: #dff7ee;
+  --mint-3: #7fd3b2;
+  --accent: #2bb389;
+  --accent-2: #14a37f;
+  --glass: rgba(255,255,255,0.6);
+  --text: #05332b;
+  --muted: #365c53;
+  --card-shadow: 0 12px 40px rgba(3,32,25,0.12);
+  --radius: 16px;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0; background: linear-gradient(180deg, var(--mint-1) 0%, #f9fffb 100%);
+  color:var(--text); display:flex; align-items:center; justify-content:center; padding:28px;
+}
+
+/* layout */
+.stage{width:100%; max-width:980px; display:grid; grid-template-columns:1fr 420px; gap:28px; align-items:center}
+
+/* Left: info */
+.hero{padding:28px; border-radius:var(--radius); background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.35)); box-shadow:var(--card-shadow); backdrop-filter: blur(6px);}
+.brand{display:flex;gap:12px;align-items:center}
+.logo{width:64px;height:64px;border-radius:14px;background:linear-gradient(135deg,var(--mint-3),var(--accent));display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:22px}
+.sub{font-size:13px;color:var(--muted)}
+.title{font-weight:700}
+h1{margin:12px 0 6px;font-size:30px}
+.lead{color:var(--muted);margin:0 0 14px;line-height:1.45}
+.features{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.chip{padding:8px 12px;border-radius:10px;background:rgba(11,77,60,0.05);font-size:14px;color:var(--muted)}
+
+/* Right: webcam card */
+.card{padding:18px;border-radius:18px;background:linear-gradient(180deg, white, var(--glass));box-shadow:var(--card-shadow);display:flex;flex-direction:column;align-items:center;gap:12px;transition:transform .45s cubic-bezier(.16,.8,.26,1)}
+.card:hover{transform:translateY(-6px)}
+.cam-wrap{width:360px;height:360px;border-radius:14px;overflow:hidden;background:#000;display:flex;align-items:center;justify-content:center;border:8px solid rgba(255,255,255,0.4)}
+canvas{width:100% !important;height:100% !important;object-fit:cover}
+.placeholder{color:rgba(255,255,255,0.95);font-weight:700}
+.controls-row{width:100%;display:flex;justify-content:space-between;align-items:center}
+.status{font-size:13px;color:var(--muted)}
+.controls{display:flex;gap:10px}
+.btn{background:linear-gradient(180deg,var(--accent),var(--accent-2));color:white;padding:10px 14px;border-radius:10px;border:none;cursor:pointer;font-weight:600;box-shadow:0 6px 18px rgba(43,179,137,0.18);transition:transform .15s ease, box-shadow .15s ease}
+.btn:active{transform:translateY(1px)}
+.btn.secondary{background:transparent;color:var(--accent);border:1.5px solid rgba(43,179,137,0.14);box-shadow:none}
+
+/* Labels */
+.labels{width:100%;display:flex;flex-direction:column;margin-top:8px}
+.label{display:flex;justify-content:space-between;align-items:center;padding:10px;border-radius:10px;background:linear-gradient(90deg, rgba(11,77,60,0.03), rgba(11,77,60,0.01));font-weight:600;color:var(--muted);margin-bottom:8px}
+.label-name{min-width:120px}
+.label-bar-wrap{display:flex;align-items:center;gap:10px;flex:1}
+.bar-bg{height:10px;background:rgba(3,32,25,0.06);border-radius:8px;flex:1;overflow:hidden}
+.bar{height:100%;border-radius:8px;background:linear-gradient(90deg,var(--accent),var(--mint-3));width:0%;transition:width .25s ease}
+.label-pct{min-width:44px;text-align:right;font-weight:600;color:var(--muted)}
+
+/* responsive */
+@media (max-width:920px){
+  .stage{grid-template-columns:1fr;}
+  .cam-wrap{width:92%;height:320px}
+}
+
+/* entrance */
+@keyframes fadeInUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.hero, .card{animation:fadeInUp .6s ease both}
